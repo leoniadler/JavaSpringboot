@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<meta charset="utf-8">
+<title>Trabalho Pós Java - Tela de Vendas</title>
+</head>
+<body>
+<header>
+
+	</header>
+	
+	<nav> 
+	<a href="index.html"><button onclick="/index.html/" class="small button">Vendas</button></a>
+	<a href="cadastrodeclientes"><button onclick="cadastrodeclientes" class="small button" >Cadastro de Clientes</button></a>
+	<a href="cadastrodeprodutos.html"><button class="small button">Cadastro de Produtos</button></a>
+	</nav> 
+
+<div th:switch="${clientes}">
+        <div th:case="*">
+            <h2>Clientes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome dos Clientes</th>
+                        <th>CPF</th>
+						<th>Sexo</th>
+						<th>Data de Nascimento</th>
+						<th>Celular<th>
+						<th>Email<th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.nome}"></td>
+                    <td th:text="${cliente.cpf}"></td>
+                    <td th:text="${cliente.celular}"></td>
+					<td th:text="${cliente.dataDeNascimento}"></td>
+					<td th:text="${cliente.sexo}"></td>
+					<td th:text="${cliente.email}"></td>
+                </tr>
+            </tbody>
+        </table>
+ </div>
+ </div>
+</body>
+</html>
